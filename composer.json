@@ -1,0 +1,15 @@
+{
+    "require": {
+        "slim/slim": "^3.11",
+        "fzaninotto/faker": "^1.8",
+        "gabordemooij/redbean": "^5.1",
+        "pimple/pimple": "^3.2"
+    },
+  "autoload": {
+    "psr-4": {
+      "Controllers\\":"app/Controllers/",
+      "Models\\":"app/Models/",
+      "Parameters\\":"app/Parameters/"
+    }
+  }
+}
