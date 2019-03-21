@@ -26,6 +26,49 @@ $app = new \Slim\App([
 ]);
 $config['displayErrorDetails'] = true;
 
+
+/**
+ * Gestion des véhicules
+ */
+
+// renvoie tous les véhicules
+$app->get('/vehicle/all', \Controllers\Vehicles::class.':getAllVehicles');
+
+
+
+
+
+
+
+
+
+// renvoie toutes les agences
+$app->get('/agency/all', \Controllers\Agency::class.':getAllAgency');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Gestion des connexions
  */
