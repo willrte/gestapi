@@ -34,16 +34,14 @@ $config['displayErrorDetails'] = true;
 // renvoie tous les véhicules
 $app->get('/vehicle/get/all', \Controllers\Vehicles::class.':getAllVehicles');
 // renvoie le véhicule spécifique à la recherche
-//$app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles::class.':getVehicleSearch');
+$app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles::class.':getVehicleSearch');
 
 
 
 
 
 
-/**
- * Gestion des agences
- */
+
 // renvoie toutes les agences
 $app->get('/agency/get/all', \Controllers\Agency::class.':getAllAgency');
 
@@ -160,7 +158,6 @@ $app->get('/get/bestVisitors', \Controllers\Goal::class.':getBestVisitors');
 
 $app->get('/get/visitorsWithoutMission', \Controllers\Goal::class.':getVisitorsWithoutMission');
 /**
- * Praticiens
 
 
 $app->get('/get/list/praticiens', \Controllers\Pratitionner::class.':getAllPractitionner');
@@ -182,7 +179,7 @@ $app->get('/get/leave/month',\Controllers\Leave::class.':getLeavesMonth');
 
 /**
  * Exécution de la route en fonction de l'url
-
+ */
 $app->run();
 
 /**
