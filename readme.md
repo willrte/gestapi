@@ -7,5 +7,3 @@
 
 
 
-
-currently in development -- not stable

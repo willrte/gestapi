@@ -32,18 +32,20 @@ $config['displayErrorDetails'] = true;
  */
 
 // renvoie tous les véhicules
-$app->get('/vehicle/all', \Controllers\Vehicles::class.':getAllVehicles');
+$app->get('/vehicle/get/all', \Controllers\Vehicles::class.':getAllVehicles');
+// renvoie le véhicule spécifique à la recherche
+//$app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles::class.':getVehicleSearch');
 
 
 
 
 
 
-
-
-
+/**
+ * Gestion des agences
+ */
 // renvoie toutes les agences
-$app->get('/agency/all', \Controllers\Agency::class.':getAllAgency');
+$app->get('/agency/get/all', \Controllers\Agency::class.':getAllAgency');
 
 
 
@@ -71,7 +73,7 @@ $app->get('/agency/all', \Controllers\Agency::class.':getAllAgency');
 
 /**
  * Gestion des connexions
- */
+
 
 // renvoie un booleen confirmant ou non s'il est connecté
 $app->get('/connexion/{username}/{password}', \Controllers\Connexion::class.':isConnected');
@@ -85,13 +87,13 @@ $app->get('/get/user/{username}/{password}',\Controllers\Connexion::class.':getI
 
 /**
  * Gestion des coûts
- */
+
 // renvoie tous les frais
 $app->get('/get/costs/all',\Controllers\Expense::class.':getAllExpenses');
 
 /**
  * Visite
- */
+
 
 // renvoie toute les visites à éffectuer
 $app->get('/get/visit/all',\Controllers\Visit::class.':getAllVisit');
@@ -112,7 +114,7 @@ $app->get('/get/nbvisit/lastyear',\Controllers\Visit::class.':getVisiteAnnee');
 /**
  *
  * Médicament
- */
+
 
 $app->get('/get/drug/family/all',\Controllers\Drug::class.':getAllDrugFamily');
 
@@ -120,7 +122,7 @@ $app->get('/get/drug/{idFamily}',\Controllers\Drug::class.':getAllDrugByFamilyId
 
 /**
  * Employé
- */
+
 $app->get('/get/employee/{idEmployee}',\Controllers\Employee::class.':getEmployee');
 
 $app->get('/get/list/employee',\Controllers\Employee::class.':getAllEmployee');
@@ -133,7 +135,7 @@ $app->get('/get/career/employee/{idEmployee}',  \Controllers\WorksIn::class.':ge
 
 /**
  * Mission / objectif
- */
+
 $app->get('/get/employee/{idEmployee}/mission',\Controllers\Goal::class.':getDetailsMissionEmployee');
 
 // Missions effectuées par mois
@@ -144,13 +146,13 @@ $app->get('/get/missions/day',\Controllers\Goal::class.':getMissionsDay');
 
 /**
  * Liste des formations dispo avant la date d'ajourd'hui
- */
+
 
 $app->get('/get/list/formations', \Controllers\Training::class.':getAllFormations');
 
 /**
  * Visiteurs médicaux
- */
+
 
 $app->get('/get/list/visiteursMed', \Controllers\Employee::class.':getVisitor');
 
@@ -159,13 +161,13 @@ $app->get('/get/bestVisitors', \Controllers\Goal::class.':getBestVisitors');
 $app->get('/get/visitorsWithoutMission', \Controllers\Goal::class.':getVisitorsWithoutMission');
 /**
  * Praticiens
- */
+
 
 $app->get('/get/list/praticiens', \Controllers\Pratitionner::class.':getAllPractitionner');
 
 /**
  * Report
- */
+
 
 // renvoie tous les compte-rendus
 $app->get('/get/report/all',\Controllers\Report::class.':getAllReport');
@@ -175,12 +177,12 @@ $app->get('/get/report/all/lastReport',\Controllers\Report::class.':getLastRepor
 
 /**
  * Leave
- */
+
 $app->get('/get/leave/month',\Controllers\Leave::class.':getLeavesMonth');
 
 /**
  * Exécution de la route en fonction de l'url
- */
+
 $app->run();
 
 /**

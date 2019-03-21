@@ -18,4 +18,10 @@ class Vehicles
         $vehicle = \Models\Vehicles::getAllVehicles();
         return $response->withJson(["vehicle" => $vehicle]);
     }
+//    public static function getVehicleSearch(Request $request,Response $response,  array $args)
+//    {
+//        $vehicle = \Models\Vehicles::getVehicleSearch($args['idColor'],$args['idCategory'],$args['idBrand']);
+//        return $response->withJson(['vehicles'=>$vehicle]);
+//
+//    }
 }
