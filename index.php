@@ -33,6 +33,8 @@ $config['displayErrorDetails'] = true;
 
 // renvoie tous les véhicules
 $app->get('/vehicle/get/all', \Controllers\Vehicles::class.':getAllVehicles');
+//renvoie le nombre de véhicules
+$app->get('/vehicle/count', \Controllers\Vehicles::class.':getVehiclesCount');
 // renvoie le véhicule spécifique à la recherche
 $app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles::class.':getVehicleSearch');
 
@@ -44,17 +46,26 @@ $app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles:
 
 // renvoie toutes les agences
 $app->get('/agency/get/all', \Controllers\Agency::class.':getAllAgency');
+//renvoie le nombre d'agences
+$app->get('/agency/count', \Controllers\Agency::class.':getAgencyCount');
 
 
 
 /**
  * Gestion des locations
  */
-
+//renvoie toutes les locations
 $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
 
 
 
+/**
+ * Gestion des utilisateurs
+ */
+//renvoie tous les utilisateurs
+$app->get('/user/get/all', \Controllers\User::class.':getAllUsers');
+//renvoie le nombre d'users
+$app->get('/user/count', \Controllers\User::class.':getUsersCount');
 
 
 
@@ -69,9 +80,7 @@ $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
 
 
 
-
-
-
+// ------------------------------------------ Modèles de routes ---------------------------------------
 
 /**
  * Gestion des connexions
@@ -180,6 +189,14 @@ $app->get('/get/report/all/lastReport',\Controllers\Report::class.':getLastRepor
  * Leave
 
 $app->get('/get/leave/month',\Controllers\Leave::class.':getLeavesMonth');
+*/
+
+
+
+
+
+
+//--------------------------------------- Execution des routes -----------------------------------------------
 
 /**
  * Exécution de la route en fonction de l'url

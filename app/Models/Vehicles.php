@@ -16,6 +16,11 @@ class Vehicles
     public function getAllVehicles(){
         return R::getAll('call getAllVehicles();');
     }
+
+    public function getVehiclesCount(){
+        return R::getAll('call getVehiclesCount();');
+    }
+
     public function getVehicleSearch($idColor,$idCategory,$idBrand ){
         $query = 'SELECT vehicle.id,vehicle.model, vehicle.nbPlaces, vehicle.kilometers, vehicle.registration, vehicle.capacity, vehicleColor.libelle, vehicleColor.id, vehicleCategory.libelle, vehicleBrand.libelle
                   FROM vehicle, vehicleColor, vehicleBrand, vehicleCategory

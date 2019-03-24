@@ -18,4 +18,9 @@ class Agency
         $agency = \Models\Agency::getAllAgency();
         return $response->withJson(["agency" => $agency]);
     }
+
+    public static function getAgencyCount($request, $response, $args){
+        $vehicle = \Models\Agency::getAgencyCount();
+        return $response->withJson(["vehicle" => $vehicle]);
+    }
 }

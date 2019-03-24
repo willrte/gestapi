@@ -16,4 +16,7 @@ class Agency
     public function getAllAgency(){
         return R::getAll('call getAllAgency();');
     }
+    public function getAgencyCount(){
+        return R::getAll('call getAgencyCount();');
+    }
 }
