@@ -37,9 +37,9 @@ $app->get('/vehicle/get/all', \Controllers\Vehicles::class.':getAllVehicles');
 $app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles::class.':getVehicleSearch');
 
 
-
-
-
+/**
+ * Gestion des agences
+ */
 
 
 // renvoie toutes les agences
@@ -47,7 +47,11 @@ $app->get('/agency/get/all', \Controllers\Agency::class.':getAllAgency');
 
 
 
+/**
+ * Gestion des locations
+ */
 
+$app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
 
 
 
