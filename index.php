@@ -66,7 +66,11 @@ $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
 $app->get('/user/get/all', \Controllers\User::class.':getAllUsers');
 //renvoie le nombre d'users
 $app->get('/user/count', \Controllers\User::class.':getUsersCount');
-
+//ajoute un nouvel utilisateur
+//exemple : http://localhost/gestapi/user/add/2/usertest/firsttest/email@emeila.com/password12/12%20rue%20des%20moutons/Ville-city/65548/0635353535
+$app->get('/user/add/{idType}/{name}/{firstname}/{email}/{password}/{adrRoad}/{adrCity}/{adrPC}/{numTel}', \Controllers\User::class.':addUser');
+//supprime un utilisateur par l'id
+$app->get('/user/delete/{id}', \Controllers\User::class.':deleteUser');
 
 
 
