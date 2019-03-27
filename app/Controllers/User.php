@@ -22,4 +22,19 @@ class User
         $user = \Models\User::getUsersCount();
         return $response->withJson(["user" => $user]);
     }
+    public static function addUser(Request $request,Response $response,  array $args){
+        $user = \Models\User::addUser($args['idType'],$args['name'],$args['firstname'],$args['email'],$args['password'],$args['adrRoad'],
+            $args['adrCity'],$args['adrPC'],$args['numTel']);
+
+        return $response->withJson(['user'=>$user]);
+
+    }
+    public static function deleteUser(Request $request,Response $response,  array $args){
+        $user = \Models\User::deleteUser($args['id']);
+
+        return $response->withJson(['user'=>$user]);
+
+    }
+
 }
+

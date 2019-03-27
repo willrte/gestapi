@@ -16,4 +16,9 @@ class Rent
     public function getAllRents(){
         return R::getAll('call getAllRents();');
     }
+    public function addRent($idVehicle, $idUser, $idStartAgency, $idEndAgency, $dateSart, $dateEnd, $cost, $kilometers)
+    {
+        return R::exec('INSERT INTO `rent` (`idVehicle`,`idUser`, `idStartAgency`, `idEndAgency`, `dateStart`, `dateEnd`, `cost`, `kilometers`) 
+        VALUES (NULL,?,?,?,?,?,?,?,?);', [$idVehicle, $idUser, $idStartAgency, $idEndAgency, $dateSart, $dateEnd, $cost, $kilometers]);
+    }
 }

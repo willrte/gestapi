@@ -18,4 +18,9 @@ class Rent
         $rent = \Models\Rent::getAllRents();
         return $response->withJson(["rent" => $rent]);
     }
+
+    public static function addRent($request, $response, $args){
+        $rent = \Models\Rent::getAllRents();
+        return $response->withJson(["rent" => $rent]);
+    }
 }
