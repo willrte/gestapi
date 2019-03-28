@@ -10,11 +10,14 @@ namespace Models;
 
 use RedBeanPHP\R as R;
 
-class Vehicles
+class Vehicle
 {
 
     public function getAllVehicles(){
         return R::getAll('call getAllVehicles();');
+    }
+    public function getOneVehicle($idVehicle){
+    return R::findOne('vehicle','where id = ?',[$idVehicle]);
     }
 
     public function getVehiclesCount(){
@@ -45,6 +48,15 @@ class Vehicles
         return R::getAll($query);
         //return R::getAll('CALL getVehicleSearchFull(?,?,?);', [$idColor,$idCategory,$idBrand]);
 
+    }
+
+    public function addVehicle($idBrand, $model, $idCategory, $idColor,$idAgency, $nbPlaces,$kilometers,$registration,$capacity){
+        return R::exec('INSERT INTO `vehicle` (`id`, `idBrand`, `model`, `idCategory`, `idColor`, `idAgency`, `nbPlaces`, `kilometers`, `registration`, `capacity`) 
+        VALUES (NULL,?,?,?,?,?,?,?,?,?);', [$idBrand,$model,$idCategory,$idColor,$idAgency,$nbPlaces,$kilometers,$registration,$capacity]);
+
+    }
+    public function deleteVehicle($idVehicle){
+        return R::exec('DELETE FROM vehicle WHERE id = ?;',[$idVehicle]);
     }
 
 

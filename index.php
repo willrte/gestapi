@@ -26,20 +26,34 @@ $app = new \Slim\App([
 ]);
 $config['displayErrorDetails'] = true;
 
+/**
+ * home
+ */
+$app->get('/', \Controllers\Connexion::class.':home');
+
+
 
 /**
  * Gestion des véhicules
  */
 
 // renvoie tous les véhicules
-$app->get('/vehicle/get/all', \Controllers\Vehicles::class.':getAllVehicles');
+$app->get('/vehicle/get/all', \Controllers\Vehicle::class.':getAllVehicles');
+
+//renvoie le vehicule qui correspond à l'id
+$app->get('/vehicle/get/{idVehicle}', \Controllers\Vehicle::class.':getOneVehicle');
 
 //renvoie le nombre de véhicules
-$app->get('/vehicle/count', \Controllers\Vehicles::class.':getVehiclesCount');
+$app->get('/vehicle/count', \Controllers\Vehicle::class.':getVehiclesCount');
 
 // renvoie le véhicule spécifique à la recherche
-$app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}/{kilometers}',\Controllers\Vehicles::class.':getVehicleSearch');
+$app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}/{kilometers}',\Controllers\Vehicle::class.':getVehicleSearch');
 
+//supprime un vehicule par l'id
+$app->get('/vehicle/delete/{idVehicle}', \Controllers\Vehicle::class.':deleteVehicle');
+
+//ajoute un nouveau vehicule
+$app->get('/vehicle/add/{idBrand}/{model}/{idCategory}/{idColor}/{idAgency}/{nbPlaces}/{kilometers}/{registration}/{capacity}', \Controllers\Vehicle::class.':addVehicle');
 
 /**
  * Gestion des agences
@@ -59,6 +73,8 @@ $app->get('/agency/count', \Controllers\Agency::class.':getAgencyCount');
  */
 //renvoie toutes les locations
 $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
+//renvoie le nombre de locations
+$app->get('/rent/count', \Controllers\Rent::class.':getAllRents');
 
 
 

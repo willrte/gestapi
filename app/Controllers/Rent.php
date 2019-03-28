@@ -18,9 +18,12 @@ class Rent
         $rent = \Models\Rent::getAllRents();
         return $response->withJson(["rent" => $rent]);
     }
+    //faire la fonction
+    public static function addRent(Request $request,Response $response,  array $args){
+        $vehicle = \Models\Vehicle::addVehicle($args['idBrand'],$args['model'],$args['idCategory'],$args['idColor'],$args['idAgency'],$args['nbPlaces'],
+            $args['kilometers'],$args['registration'],$args['capacity']);
 
-    public static function addRent($request, $response, $args){
-        $rent = \Models\Rent::getAllRents();
-        return $response->withJson(["rent" => $rent]);
+        return $response->withJson(['vehicle'=>$vehicle]);
+
     }
 }

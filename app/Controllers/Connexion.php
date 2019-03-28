@@ -30,4 +30,21 @@ class Connexion
         return $response->withJson($query);
     }
 
+
+    public static function home(){
+        echo ('
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Gestapi Home</title>
+   </head>
+
+   <body>
+      <h1 style="text-align:center; font-family: Arial" >GESTAPI</h1>
+      <p  style="text-align:center; font-family: Arial" >H O M E</p>
+   </body>
+</html>
+');
+    }
+
 }
