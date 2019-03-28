@@ -16,9 +16,13 @@ class User
     public function getAllUsers(){
         return R::getAll('call getAllUsers();');
     }
-    public function getUsersCount(){
-        return R::getAll('call getUsersCount();');
+    public function getOneUser($idUser){
+        return R::findOne('user','where id = ?',[$idUser]);
     }
+    public function getUsersCount(){
+        return R::getAll('call getUserCount();');
+    }
+
     public function addUser($idType, $name, $firstname, $email,$password, $adrRoad,$adrCity,$adrPC,$numTel){
         return R::exec('INSERT INTO `user` (`id`, `idType`, `name`, `firstname`, `email`, `password`, `adrRoad`, `adrCity`, `adrPC`, `numTel`) 
         VALUES (NULL,?,?,?,?,?,?,?,?,?);', [$idType,$name,$firstname,$email,$password,$adrRoad,$adrCity,$adrPC,$numTel]);
@@ -35,6 +39,6 @@ class User
 //        R::store($user);
     }
     public function deleteUser($id){
-        return R::exec('DELETE FROM user WHERE id ='.$id.';');
+        return R::exec('DELETE FROM user WHERE id = ?;',[$id]);
     }
 }

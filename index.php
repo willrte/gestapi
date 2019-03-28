@@ -33,10 +33,12 @@ $config['displayErrorDetails'] = true;
 
 // renvoie tous les véhicules
 $app->get('/vehicle/get/all', \Controllers\Vehicles::class.':getAllVehicles');
+
 //renvoie le nombre de véhicules
 $app->get('/vehicle/count', \Controllers\Vehicles::class.':getVehiclesCount');
+
 // renvoie le véhicule spécifique à la recherche
-$app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles::class.':getVehicleSearch');
+$app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}/{kilometers}',\Controllers\Vehicles::class.':getVehicleSearch');
 
 
 /**
@@ -46,6 +48,7 @@ $app->get('/vehicle/get/{idColor}/{idCategory}/{idBrand}',\Controllers\Vehicles:
 
 // renvoie toutes les agences
 $app->get('/agency/get/all', \Controllers\Agency::class.':getAllAgency');
+
 //renvoie le nombre d'agences
 $app->get('/agency/count', \Controllers\Agency::class.':getAgencyCount');
 
@@ -64,11 +67,16 @@ $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
  */
 //renvoie tous les utilisateurs
 $app->get('/user/get/all', \Controllers\User::class.':getAllUsers');
+
+//renvoie l'user qui corrspond à l'id
+$app->get('/user/get/{idUser}', \Controllers\User::class.':getOneUser');
+
 //renvoie le nombre d'users
 $app->get('/user/count', \Controllers\User::class.':getUsersCount');
+
 //ajoute un nouvel utilisateur
-//exemple : http://localhost/gestapi/user/add/2/usertest/firsttest/email@emeila.com/password12/12%20rue%20des%20moutons/Ville-city/65548/0635353535
 $app->get('/user/add/{idType}/{name}/{firstname}/{email}/{password}/{adrRoad}/{adrCity}/{adrPC}/{numTel}', \Controllers\User::class.':addUser');
+
 //supprime un utilisateur par l'id
 $app->get('/user/delete/{id}', \Controllers\User::class.':deleteUser');
 

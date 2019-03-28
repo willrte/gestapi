@@ -26,7 +26,7 @@ class Vehicles
 
     public static function getVehicleSearch(Request $request,Response $response,  array $args)
     {
-        $vehicle = \Models\Vehicles::getVehicleSearch($args['idColor'],$args['idCategory'],$args['idBrand']);
+        $vehicle = \Models\Vehicles::getVehicleSearch($args['idColor'],$args['idCategory'],$args['idBrand'],$args['kilometers']);
         return $response->withJson(['vehicles'=>$vehicle]);
 
     }

@@ -18,14 +18,16 @@ class Vehicles
     }
 
     public function getVehiclesCount(){
-        return R::getAll('call getVehiclesCount();');
+        return R::getAll('call getVehicleCount();');
     }
-
-    public function getVehicleSearch($idColor,$idCategory,$idBrand ){
-        $query = 'SELECT vehicle.id,vehicle.model, vehicle.nbPlaces, vehicle.kilometers, vehicle.registration, vehicle.capacity, vehicleColor.libelle, vehicleColor.id, vehicleCategory.libelle, vehicleBrand.libelle
-                  FROM vehicle, vehicleColor, vehicleBrand, vehicleCategory
-                  WHERE vehicle.idColor = vehicleColor.id AND vehicle.idBrand = vehicleBrand.id
-                  AND vehicle.idCategory = vehicleCategory.id';
+//          couleur / categorie / marque / kilometres / registration / capacity
+    public function getVehicleSearch($idColor,$idCategory,$idBrand,$kilometers ){
+        $query = 'SELECT vehicle.model, vehicle.nbPlaces, vehicle.kilometers, vehicle.registration, vehicle.capacity, vehicleColor.libelle as \'color\'
+                  , vehicleCategory.libelle as \'category\', vehicleBrand.libelle as \'brand\' 
+                  FROM vehicle, vehicleColor, vehicleBrand, vehicleCategory 
+                  WHERE vehicle.idColor = vehicleColor.id 
+                  AND vehicle.idBrand = vehicleBrand.id 
+                  AND vehicle.idCategory = vehicleCategory.id ';
         if ($idColor != 0){
             $query.= ' AND vehicleColor.id ='.$idColor;
         }
@@ -35,11 +37,15 @@ class Vehicles
         if ($idBrand != 0){
             $query.= ' AND vehicleBrand.id ='.$idBrand;
         }
+        if ($kilometers != 0){
+            $query.= ' and vehicle.kilometers >='.$kilometers;
+        }
 //        var_dump($query);
 //        exit();
         return R::getAll($query);
         //return R::getAll('CALL getVehicleSearchFull(?,?,?);', [$idColor,$idCategory,$idBrand]);
 
     }
+
 
 }

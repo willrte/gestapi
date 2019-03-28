@@ -18,6 +18,12 @@ class User
         $user = \Models\User::getAllUsers();
         return $response->withJson(["user" => $user]);
     }
+    public static function getOneUser(Request $request,Response $response,  array $args){
+        $user = \Models\User::getOneUser($args['idUser']);
+
+        return $response->withJson(['user'=>$user]);
+
+    }
     public static function getUsersCount($request, $response, $args){
         $user = \Models\User::getUsersCount();
         return $response->withJson(["user" => $user]);
