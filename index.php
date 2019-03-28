@@ -74,7 +74,11 @@ $app->get('/agency/count', \Controllers\Agency::class.':getAgencyCount');
 //renvoie toutes les locations
 $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
 //renvoie le nombre de locations
-$app->get('/rent/count', \Controllers\Rent::class.':getAllRents');
+$app->get('/rent/count', \Controllers\Rent::class.':getRentCount');
+//ajouter une location
+$app->get('/rent/add/{idVehicle}/{idUser}/{idStartAgency}/{idEndAgency}/{dateStart}/{dateEnd}/{cost}/{kilometers}', \Controllers\Rent::class.':addRent');
+//supprimer une location via l'id
+$app->get('/rent/delete/{idRent}', \Controllers\Rent::class.':deleteRent');
 
 
 
