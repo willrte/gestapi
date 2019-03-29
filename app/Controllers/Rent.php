@@ -35,7 +35,6 @@ class Rent
             $args['cost'],$args['kilometers']);
 
         return $response->withJson(['rent'=>$rent]);
-
     }
     public static function deleteRent(Request $request,Response $response,  array $args){
         $rent = \Models\Rent::deleteRent($args['idRent']);

@@ -31,4 +31,5 @@ class Rent
     public function deleteRent($idRent){
         return R::exec('DELETE FROM rent WHERE id = ?;',[$idRent]);
     }
+
 }

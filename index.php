@@ -84,6 +84,7 @@ $app->get('/rent/delete/{idRent}', \Controllers\Rent::class.':deleteRent');
 
 
 
+
 /**
  * Gestion des utilisateurs
  */
