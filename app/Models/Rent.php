@@ -14,7 +14,13 @@ class Rent
 {
 
     public function getAllRents(){
-        return R::getAll('call getAllRents();');
+        return R::getAll('call getAllRent();');
+    }
+    public function getOneRent($idRent){
+        return R::findOne('rent','where id = ?',[$idRent]);
+    }
+    public function getRentCount(){
+        return R::getAll('call getRentCount ();');
     }
 
     public function addRent($idVehicle, $idUser, $idStartAgency, $idEndAgency, $dateSart, $dateEnd, $cost, $kilometers)

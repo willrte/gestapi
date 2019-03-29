@@ -18,6 +18,16 @@ class Rent
         $rent = \Models\Rent::getAllRents();
         return $response->withJson(["rent" => $rent]);
     }
+    public static function getOneRent(Request $request,Response $response,  array $args){
+        $rent = \Models\Rent::getOneRent($args['idRent']);
+
+        return $response->withJson(['rent'=>$rent]);
+
+    }
+    public static function getRentCount($request, $response, $args){
+        $rent = \Models\Rent::getRentCount();
+        return $response->withJson(["rent" => $rent]);
+    }
 
     public static function addRent(Request $request,Response $response,  array $args){
         $rent = \Models\Rent::addRent($args['idVehicle'],$args['idUser'],$args['idStartAgency'],

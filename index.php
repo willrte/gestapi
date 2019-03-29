@@ -73,6 +73,8 @@ $app->get('/agency/count', \Controllers\Agency::class.':getAgencyCount');
  */
 //renvoie toutes les locations
 $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
+//renvoie l'user qui corrspond à l'id
+$app->get('/rent/get/{idRent}', \Controllers\Rent::class.':getOneRent');
 //renvoie le nombre de locations
 $app->get('/rent/count', \Controllers\Rent::class.':getRentCount');
 //ajouter une location
