@@ -29,7 +29,9 @@ $config['displayErrorDetails'] = true;
 /**
  * home
  */
+
 $app->get('/', \Controllers\Connexion::class.':home');
+
 
 
 
@@ -55,10 +57,12 @@ $app->get('/vehicle/delete/{idVehicle}', \Controllers\Vehicle::class.':deleteVeh
 //ajoute un nouveau vehicule
 $app->get('/vehicle/add/{idBrand}/{model}/{idCategory}/{idColor}/{idAgency}/{nbPlaces}/{kilometers}/{registration}/{capacity}', \Controllers\Vehicle::class.':addVehicle');
 
+
+
+
 /**
  * Gestion des agences
  */
-
 
 // renvoie toutes les agences
 $app->get('/agency/get/all', \Controllers\Agency::class.':getAllAgency');
@@ -68,17 +72,23 @@ $app->get('/agency/count', \Controllers\Agency::class.':getAgencyCount');
 
 
 
+
 /**
  * Gestion des locations
  */
+
 //renvoie toutes les locations
 $app->get('/rent/get/all', \Controllers\Rent::class.':getAllRents');
+
 //renvoie l'user qui corrspond à l'id
 $app->get('/rent/get/{idRent}', \Controllers\Rent::class.':getOneRent');
+
 //renvoie le nombre de locations
 $app->get('/rent/count', \Controllers\Rent::class.':getRentCount');
+
 //ajouter une location
 $app->get('/rent/add/{idVehicle}/{idUser}/{idStartAgency}/{idEndAgency}/{dateStart}/{dateEnd}/{cost}/{kilometers}', \Controllers\Rent::class.':addRent');
+
 //supprimer une location via l'id
 $app->get('/rent/delete/{idRent}', \Controllers\Rent::class.':deleteRent');
 
@@ -88,6 +98,7 @@ $app->get('/rent/delete/{idRent}', \Controllers\Rent::class.':deleteRent');
 /**
  * Gestion des utilisateurs
  */
+
 //renvoie tous les utilisateurs
 $app->get('/user/get/all', \Controllers\User::class.':getAllUsers');
 

@@ -10,6 +10,7 @@ namespace Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
+use \Firebase\JWT\JWT;
 
 class Connexion
 {
@@ -45,6 +46,32 @@ class Connexion
    </body>
 </html>
 ');
-    }
+
+
+        $json = file_get_contents('http://localhost/gestapi/vehicle/count');
+
+        $data = json_decode($json,true);
+
+        $resultatvehicles = $data['vehicle'][0];
+
+//        echo "<pre>";
+
+        echo $resultatvehicles['nbVehicle'];
+
+
+//        $json = file_get_contents('http://api.geonames.org/findNearbyPlaceNameJSON?lat=51.9877644&lng=-1.47866&username=demo');
+//
+//        $data = json_decode($json,true);
+//
+//        $Geonames = $data['geonames'][0];
+//
+//        echo "<pre>";
+//
+//        print_r($Geonames);
+//
+//        exit;
+
+
+}
 
 }

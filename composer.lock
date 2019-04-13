@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "068ec186702d2e33a76d76c5268ac236",
+    "content-hash": "60344d7d1d8b0e36dfded2a7313d6752",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -36,6 +36,52 @@
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
             "time": "2017-02-14T19:40:03+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": " 4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2017-06-27T22:17:23+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -89,16 +135,16 @@
         },
         {
             "name": "gabordemooij/redbean",
-            "version": "v5.2",
+            "version": "v5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gabordemooij/redbean.git",
-                "reference": "4ec3ee400bfbe4c52da4a376de9a6c338b5a8819"
+                "reference": "913c8072a13105d7d702ee88e762796773d212fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/4ec3ee400bfbe4c52da4a376de9a6c338b5a8819",
-                "reference": "4ec3ee400bfbe4c52da4a376de9a6c338b5a8819",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/913c8072a13105d7d702ee88e762796773d212fe",
+                "reference": "913c8072a13105d7d702ee88e762796773d212fe",
                 "shasum": ""
             },
             "require": {
@@ -126,7 +172,7 @@
             "keywords": [
                 "orm"
             ],
-            "time": "2018-10-26T09:06:03+00:00"
+            "time": "2019-03-15T09:34:00+00:00"
         },
         {
             "name": "nikic/fast-route",

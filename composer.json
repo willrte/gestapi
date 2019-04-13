@@ -3,7 +3,8 @@
         "slim/slim": "^3.11",
         "fzaninotto/faker": "^1.8",
         "gabordemooij/redbean": "^5.2",
-        "pimple/pimple": "^3.2"
+        "pimple/pimple": "^3.2",
+        "firebase/php-jwt": "^5.0"
     },
   "autoload": {
     "psr-4": {
