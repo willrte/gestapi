@@ -12,28 +12,44 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use \Firebase\JWT\JWT;
 
+define('DOC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT'] . '/');
+require DOC_ROOT_PATH . '../html/gestapi/app/Parameters/version.php';
+
+
 class Connexion
 {
-    public static function isConnected(Request $request, Response $response, array $args){
+
+    public static function isConnected(Request $request, Response $response, array $args)
+    {
         $account = \Models\Connexion::isConnected($args['username'], $args['password']);
         return $response->withJson($account);
     }
 
-    public static function getRights(Request $request, Response $response, array $args){
+    public static function getRights(Request $request, Response $response, array $args)
+    {
         $right = \Models\Connexion::getRights($args['username'], $args['password']);
-        $query = []; foreach ($right as $aRight){$query += $aRight;}
+        $query = [];
+        foreach ($right as $aRight) {
+            $query += $aRight;
+        }
         return $response->withJson($query);
     }
 
-    public static function getIdFromConnectedUser(Request $request, Response $response, array $args){
+    public static function getIdFromConnectedUser(Request $request, Response $response, array $args)
+    {
         $user = \Models\Connexion::getIdFromConnectedUser($args['username'], $args['password']);
-        $query = []; foreach ($user as $aUser){$query += $aUser;}
+        $query = [];
+        foreach ($user as $aUser) {
+            $query += $aUser;
+        }
         return $response->withJson($query);
     }
 
 
-    public static function home(){
-        echo ('
+    public static function home()
+    {
+        $version = '3.2';
+        echo('
 <!DOCTYPE html>
 <html>
    <head>
@@ -43,35 +59,21 @@ class Connexion
    <body>
       <h1 style="text-align:center; font-family: Arial" >GESTAPI</h1>
       <p  style="text-align:center; font-family: Arial" >H O M E</p>
+      <p  style="text-align:center; font-family: Arial" >Gestapi v' . $version . '</p>
    </body>
 </html>
 ');
 
 
-        $json = file_get_contents('http://localhost/gestapi/vehicle/count');
-
-        $data = json_decode($json,true);
-
-        $resultatvehicles = $data['vehicle'][0];
-
-//        echo "<pre>";
-
-        echo $resultatvehicles['nbVehicle'];
-
-
-//        $json = file_get_contents('http://api.geonames.org/findNearbyPlaceNameJSON?lat=51.9877644&lng=-1.47866&username=demo');
+//        $json = file_get_contents('http://localhost/gestapi/vehicle/count');
 //
 //        $data = json_decode($json,true);
 //
-//        $Geonames = $data['geonames'][0];
+//        $resultatvehicles = $data['vehicle'][0];
 //
-//        echo "<pre>";
-//
-//        print_r($Geonames);
-//
-//        exit;
+//        echo $resultatvehicles['nbVehicles'];
 
 
-}
+    }
 
 }

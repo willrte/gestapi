@@ -14,7 +14,7 @@ class DBConnect
     /**
      * Paramètres pour la connexion à la base de données, stokés sous formes de constantes
      */
-    const DBCONNECTDSN = 'mysql:host=localhost;dbname=GESTASIXT_V1';
+    const DBCONNECTDSN = 'mysql:host=localhost;dbname=GESTASIXT_V7';
     const DBCONNECTUSERNAME = 'usersio';
     const DBCONNECTPASSWORD = 'pwsio';
 }
