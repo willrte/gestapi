@@ -6,16 +6,16 @@ API utilisée par l'application GestaSixt pour le CRUD dans le cas d'un projet p
 
 ## Parties 
 
-[Matériel](##Matériel)
+[Matériel](#Matériel)
 
-[Routes](##Routes)
+[Routes](#Routes)
 
-- [Véhicules](####VEHICULES)
-- [Agences](####AGENCES)
-- [Locations](####LOCATIONS)
-- [Utilisateurs](####UTILISATEURS)
+- [Véhicules](#VEHICULES)
+- [Agences](#AGENCES)
+- [Locations](#LOCATIONS)
+- [Utilisateurs](#UTILISATEURS)
 
-[Sources OpenSource](##Sources)
+[Sources OpenSource](#Sources)
 
 
 
