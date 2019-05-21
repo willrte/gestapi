@@ -15,7 +15,7 @@ API utilisée par l'application GestaSixt pour le CRUD dans le cas d'un projet p
 - [Locations](#LOCATIONS)
 - [Utilisateurs](#UTILISATEURS)
 
-[Sources OpenSource](#Sources)
+[Sources ](#Sources)
 
 
 
