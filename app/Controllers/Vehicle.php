@@ -49,4 +49,9 @@ class Vehicle
         return $response->withJson(['vehicle'=>$vehicle]);
 
     }
+    public static function updateVehicle(Request $request,Response $response,  array $args){
+        $vehicle = \Models\Vehicle::updateVehicle($args['id'],$args['kilometers']);
+        return $response->withJson(['vehicle'=>$vehicle]);
+
+    }
 }

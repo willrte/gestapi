@@ -56,7 +56,21 @@ class Vehicle
 
     }
     public function deleteVehicle($idVehicle){
-        return R::exec('DELETE FROM vehicle WHERE id = ?;',[$idVehicle]);
+        return R::getAll('DELETE FROM vehicle WHERE id = ?;',[$idVehicle]);
+    }
+    public function updateVehicle($id,$kilometers){
+        $oldKilometers = R::getAll('call getVehicleKm(?) ',[$id]);
+        $kikilometers = $oldKilometers[0];
+        $kilometers_data = $kikilometers['kilometers'];
+        //var_dump($kilometers_data);
+
+        //exit();
+        if ($kilometers >= $kilometers_data){
+           // $addKilometers = $kilometers - $oldKilometers;
+            return R::exec('update vehicle set `kilometers` =  ? WHERE `id` = ? ; ',[$kilometers,$id]);
+        }
+            return 'erreur, les kilomètres sont inférieurs à eux d\'origine';
+
     }
 
 

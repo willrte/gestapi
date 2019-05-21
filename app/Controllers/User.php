@@ -42,8 +42,9 @@ class User
 
     }
     public static function updateUser(Request $request,Response $response,  array $args){
-        $user = \Models\User::updateUser($args['id'],$args['password'],$args['email']);
-
+        $user = \Models\User::updateUser($args['idType'],$args['name'],$args['firstname'],$args['email'],$args['password'],$args['adrRoad'],
+            $args['adrCity'],$args['adrPC'],$args['numTel'],$args['id']);
+//$idType,$name,$firstname,$email,$password,$adrRoad,$adrCity,$adrPC,$numTel,$id
         return $response->withJson(['user'=>$user]);
 
     }

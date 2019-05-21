@@ -57,7 +57,8 @@ $app->get('/vehicle/delete/{idVehicle}', \Controllers\Vehicle::class.':deleteVeh
 //ajoute un nouveau vehicule
 $app->get('/vehicle/add/{idBrand}/{model}/{idCategory}/{idColor}/{idAgency}/{nbPlaces}/{kilometers}/{registration}/{capacity}', \Controllers\Vehicle::class.':addVehicle');
 
-
+//met a jour les kilomètres du vehicule en fonction de l'id
+$app->get('/vehicle/update/{id}/{kilometers}', \Controllers\Vehicle::class.':updateVehicle');
 
 
 /**
@@ -115,12 +116,12 @@ $app->get('/user/add/{idType}/{name}/{firstname}/{email}/{password}/{adrRoad}/{a
 $app->get('/user/delete/{id}', \Controllers\User::class.':deleteUser');
 
 //met a jour le mot de passe et l'email de l'user en fonction de l'id
-$app->get('/user/update/{id}/{password}/{email}', \Controllers\User::class.':updateUser');
+$app->get('/user/update/{idType}/{name}/{firstname}/{email}/{password}/{adrRoad}/{adrCity}/{adrPC}/{numTel}/{id}', \Controllers\User::class.':updateUser');
 
 
 
 
-
+//localhost/gestapi/user/update/2/Dupond/Claude/dupond.claude@gmail.com/dupclaude/12ruedestulipes/Paris/95000/0231455685/2
 
 
 
