@@ -1,6 +1,6 @@
 # API GestAPI 
 
-[![Build Status](https://img.shields.io/badge/Etat-Fonctionnel-brightgreen.svg?style=flat)](https://github.com/DRAPPI17Qu/SANOFI-C-API/)[![Build Status](https://img.shields.io/badge/Taille-39,2Ko-blue.svg )(https://github.com/jeulis/gestapi/)
+[![Build Status](https://img.shields.io/badge/Etat-Fonctionnel-brightgreen.svg?style=flat)](https://github.com/jeulis/gestapi)[![Build Status](https://img.shields.io/badge/Taille-39,2Ko-blue.svg )](https://github.com/jeulis/gestapi/)
 
 API utilisée par l'application GestaSixt pour le CRUD dans le cas d'un projet personnel encadré scolaire par **RATELADE WILLIAM**
 
