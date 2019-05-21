@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  lun. 29 avr. 2019 à 14:59
+-- Généré le :  mar. 21 mai 2019 à 16:12
 -- Version du serveur :  10.1.38-MariaDB-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.17-0ubuntu0.18.04.1
 
@@ -53,6 +53,11 @@ SELECT COUNT(id) AS nbUsers FROM user$$
 
 CREATE DEFINER=`usersio`@`%` PROCEDURE `getVehicleCount` ()  NO SQL
 SELECT COUNT(id) AS nbVehicles FROM vehicle$$
+
+CREATE DEFINER=`usersio`@`%` PROCEDURE `getVehicleKm` (IN `i_id` INT(255) UNSIGNED)  NO SQL
+BEGIN
+select kilometers FROM vehicle WHERE id = i_id ;
+END$$
 
 DELIMITER ;
 
@@ -208,7 +213,6 @@ INSERT INTO `rent` (`id`, `idVehicle`, `idUser`, `idStartAgency`, `idEndAgency`,
 (6, 65, 4, 38, 82, '2019-01-09', '2019-03-10', 102, 372),
 (7, 86, 3, 41, 100, '2018-12-26', '2019-03-21', 87, 130),
 (8, 39, 5, 76, 24, '2019-01-14', '2019-03-21', 301, 19),
-(9, 46, 5, 47, 32, '2019-01-03', '2019-03-13', 246, 10),
 (10, 7, 5, 9, 62, '2019-01-22', '2019-02-10', 253, 382),
 (11, 79, 5, 99, 64, '2018-12-22', '2019-03-22', 420, 17),
 (12, 93, 1, 20, 45, '2018-12-19', '2019-02-21', 363, 287),
@@ -254,7 +258,14 @@ INSERT INTO `rent` (`id`, `idVehicle`, `idUser`, `idStartAgency`, `idEndAgency`,
 (56, 4, 3, 90, 44, '2019-01-10', '2019-02-02', 296, 161),
 (57, 2, 5, 27, 42, '2019-03-14', '2019-03-13', 254, 165),
 (58, 23, 4, 6, 7, '2018-12-21', '2018-12-24', 255, 165),
-(59, 10, 7, 58, 59, '2019-01-19', '2019-01-24', 4549, 322);
+(59, 10, 7, 58, 59, '2019-01-19', '2019-01-24', 4549, 322),
+(60, 2, 4, 2, 6, '2018-02-13', '2018-02-15', 165, 654),
+(61, 2, 4, 2, 6, '2018-02-13', '2018-02-15', 165, 654),
+(62, 1, 2, 3, 3, '2019-01-12', '2019-01-15', 254, 400),
+(63, 1, 2, 2, 3, '2019-04-04', '2019-04-11', 235, 1000),
+(64, 1, 1, 1, 1, '2001-01-01', '2001-01-01', 111, 1111),
+(65, 1, 1, 1, 1, '2019-05-01', '2019-05-03', 654, 10000),
+(66, 1, 1, 1, 1, '2019-05-01', '2019-05-02', 789, 100);
 
 -- --------------------------------------------------------
 
@@ -280,15 +291,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `idType`, `name`, `firstname`, `email`, `password`, `adrRoad`, `adrCity`, `adrPC`, `numTel`) VALUES
-(1, 1, 'Dieu', 'Jean', 'jean.dieu@gestasixt.com', 'jeandieu', '13 rue le la requëte sql', 'phpville', 13400, '0625483295'),
-(2, 1, 'Iencli', 'Jean', 'jean.iencli@gestasixt.com', 'jeaniencli', '4 rue du chemin avec des petits cailloux', 'rocheville', 45060, '0635353535'),
+(1, 2, '1', '1', '1', '1', '1', '1', 11111, '1111111111'),
+(2, 2, 'Dupond', 'Claude', 'dupond.claude@gmail.com', 'dupondclaude', '12ruedestulipes', 'Paris', 95000, '0231455685'),
 (3, 2, 'Medhi', 'Benchrif', 'medhi.benchrif@gmail.com', 'pwmedhibenchrif', '45 rue du panier de yoplait', 'yaourt-ville', 87000, '0654659887'),
 (4, 2, 'Robert', 'Alexandra', 'alexandra.robert@gmail.com', 'pwalexandrarobert', '12 rue du gravier', 'rocherCity', 65000, '0645122378'),
-(5, 2, 'Mozzalo', 'Roxanne', 'roxanne.mozzalo@gmail.com', 'pwroxannemozzalo', '65 Rue des fruits', 'pomme-sur-rhone', 11250, '0754653298'),
+(5, 2, 'Mozzalo', 'Roxanne', 'roxanne.mozzallo@gmail.com', 'rmozzallo', '65 Rue des fruits', 'pomme-sur-rhone', 11250, '0754653298'),
 (7, 2, 'Bess', 'Camil', 'camil.bess@jtm.love', 'pwcamilbess', '10 ter rue de la robe', 'belleville sous le rocher', 84000, '0785452632'),
-(8, 2, 'DRAPPIER', 'Quentin', 'drappierq@gmail.com', 'azerty', '5, La poiraudière', 'SaintFlaiveDesLoups', 85150, '0781727521'),
-(9, 2, 'gouyonnal', 'theal', 'gouyonnaise@paulchaunu.fr', 'uuruhf', 'rue des gens', 'VilleSainte', 87542, '0754213265'),
-(10, 2, 'miquel', 'adrien', 'adrien.miquel@gobelin.com', 'pwmiquel', '4 rue d\'aubigny', 'Aubigny', 85400, '0516457889');
+(8, 2, 'DRAPPIER', 'Quentin', 'drappierq@gmail.com', 'azerty', '5, La poiraudière', 'SaintFlaiveDesLoups', 85150, '0781727521');
 
 -- --------------------------------------------------------
 
@@ -333,8 +342,8 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`id`, `idBrand`, `model`, `idCategory`, `idColor`, `idAgency`, `nbPlaces`, `kilometers`, `registration`, `capacity`) VALUES
-(1, 1, '508', 6, 10, 11, 4, 13646, 'IS 224 GU', 2617),
-(2, 6, '25', 4, 1, 16, 7, 110487, 'AA 431 CJ', 2724),
+(1, 1, '508', 6, 10, 11, 4, 12711, 'IS 224 GU', 2617),
+(2, 6, '25', 4, 1, 16, 7, 300, 'AA 431 CJ', 2724),
 (3, 10, 'Rav4', 5, 10, 3, 3, 73595, 'ND 631 AH', 7923),
 (4, 5, 'model 3', 1, 3, 23, 5, 18402, 'XO 971 YM', 3658),
 (6, 1, 'Mirage', 6, 5, 3, 6, 148786, 'YR 009 UR', 7202),
@@ -355,8 +364,6 @@ INSERT INTO `vehicle` (`id`, `idBrand`, `model`, `idCategory`, `idColor`, `idAge
 (22, 8, 'Mirage', 8, 8, 16, 2, 121652, 'IW 966 IB', 1294),
 (23, 15, 'Mirage', 2, 6, 25, 5, 128961, 'VO 262 UL', 5848),
 (24, 9, 'Mirage', 4, 10, 3, 6, 61175, 'SA 753 VR', 6461),
-(25, 4, 'Mirage', 3, 8, 12, 7, 35631, 'AH 146 HP', 4727),
-(26, 5, 'Mirage', 5, 10, 6, 4, 49568, 'HA 781 ER', 1263),
 (27, 12, 'Mirage', 5, 10, 1, 7, 56006, 'PI 986 ZF', 2084),
 (28, 15, 'Mirage', 6, 2, 10, 3, 120637, 'RC 161 LJ', 2257),
 (29, 14, 'Mirage', 1, 7, 21, 2, 95966, 'VO 717 WG', 7905),
@@ -434,7 +441,10 @@ INSERT INTO `vehicle` (`id`, `idBrand`, `model`, `idCategory`, `idColor`, `idAge
 (101, 1, 'laguna', 4, 2, 5, 8, 600000, 'JA444AJ', 40),
 (102, 6, 'ouitoutafait', 5, 4, 46, 4, 120000, 'JU462KL', 45),
 (103, 5, 'Mustang', 6, 8, 8, 4, 65000, 'ML457JG', 400),
-(104, 2, '308 Phase 2', 4, 1, 5, 5, 16000, 'ML 752 KJ', 500);
+(104, 2, '308 Phase 2', 4, 1, 5, 5, 16000, 'ML 752 KJ', 500),
+(105, 3, 'Yaris', 1, 9, 1, 4, 44500, '45ML65', 250),
+(106, 2, '235', 1, 1, 5, 5, 465000, 'LA65ML', 879),
+(107, 3, '75', 3, 2, 8, 987, 654000, 'ml987ml', 75);
 
 -- --------------------------------------------------------
 
@@ -589,19 +599,19 @@ ALTER TABLE `vehicleColor`
 -- AUTO_INCREMENT pour la table `rent`
 --
 ALTER TABLE `rent`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT pour la table `vehicleBrand`
