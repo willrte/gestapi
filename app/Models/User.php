@@ -41,4 +41,7 @@ class User
     public function deleteUser($id){
         return R::exec('DELETE FROM user WHERE id = ?;',[$id]);
     }
+    public function updateUser($id,$password,$email){
+        return R::exec('update user set `password` = ?, `email` = ? where `id` = ? ',[$password,$email,$id]);
+    }
 }

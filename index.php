@@ -114,7 +114,8 @@ $app->get('/user/add/{idType}/{name}/{firstname}/{email}/{password}/{adrRoad}/{a
 //supprime un utilisateur par l'id
 $app->get('/user/delete/{id}', \Controllers\User::class.':deleteUser');
 
-
+//met a jour le mot de passe et l'email de l'user en fonction de l'id
+$app->get('/user/update/{id}/{password}/{email}', \Controllers\User::class.':updateUser');
 
 
 
