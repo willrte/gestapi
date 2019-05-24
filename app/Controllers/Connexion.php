@@ -48,7 +48,7 @@ class Connexion
 
     public static function home()
     {
-        $version = '3.2';
+        $version = '3.25';
         echo('
 <!DOCTYPE html>
 <html>
